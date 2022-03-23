@@ -6,4 +6,12 @@ public class Pizza {
         this.sizeOfPizza = sizeOfPizza;
         this.typeOfPizza = typeOfPizza;
     }
+
+    public SizeOfPizza getSizeOfPizza() {
+        return sizeOfPizza;
+    }
+
+    public TypeOfPizza getTypeOfPizza() {
+        return typeOfPizza;
+    }
 }
