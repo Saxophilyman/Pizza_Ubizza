@@ -1,4 +1,31 @@
-public class AutoFullOfIngredients {
+import java.util.HashMap;
+import java.util.Map;
+
+public class AutoFullOfIngredients implements Runnable {
+    int minimumVolumeOfIngredients = 15;
+    private Map<Ingredients, Integer> listOfNumbersOfIngredientsUsingInAutoFull;
+
+
+    public AutoFullOfIngredients(StockOfIngredients stockOfIngredientsConstructor) {
+        this.listOfNumbersOfIngredientsUsingInAutoFull = stockOfIngredientsConstructor.getListOfNumbersOfIngredients();
+    }
+
+
+    @Override
+    public void run() {
+        for (Map.Entry<Ingredients, Integer> entry : listOfNumbersOfIngredientsUsingInAutoFull.entrySet()) {
+            if (entry.getValue() < minimumVolumeOfIngredients) {
+                entry.setValue(entry.getValue() + minimumVolumeOfIngredients);
+            }
+        }
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
     /*Время от времени запасы ингредиентов на складе пополняются
     Для каждого ингредиента задан нижний порог его количества на складе
             (этот порог может быть одинаковым для всех ингредиентов).

@@ -7,6 +7,8 @@ public enum SizeOfPizza {
         this.valueSizeOfPizza = valueSizeOfPizza;
     }
 
+
+
     public int getValueSizeOfPizza() {
         return valueSizeOfPizza;
     }
